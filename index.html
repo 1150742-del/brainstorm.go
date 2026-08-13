@@ -1,429 +1,1113 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0">
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>π Memory</title>
+    <title>BRAINZTORM — Think Further.</title>
 
-    <link
-        rel="stylesheet"
-        href="./css/style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Background -->
+<!-- =========================================================
+     APP SHELL
+========================================================= -->
 
-    <div class="background">
+<div class="app">
 
-        <div class="blob blob1"></div>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-        <div class="blob blob2"></div>
+        <div class="brand">
+            <div class="brand-orb">✦</div>
 
-        <div class="blob blob3"></div>
-
-    </div>
-
-
-
-    <!-- Toast -->
-
-    <div
-        id="toast"
-        class="toast">
-
-        Wait until the sequence finishes!
-
-    </div>
+            <div>
+                <div class="brand-name">BRAINZTORM</div>
+                <div class="brand-subtitle">THINK FURTHER.</div>
+            </div>
+        </div>
 
 
+        <nav class="nav">
 
-    <!-- Instruction Screen -->
-
-    <div
-        id="instructionScreen"
-        class="instruction-screen">
-
-        <div class="instruction-box">
-
-            <button
-                id="closeInstructions"
-                class="close-btn">
-
-                &times;
-
+            <button class="nav-item active" data-page="home">
+                <span>⌂</span>
+                <span>Home</span>
             </button>
 
-            <h1>
+            <button class="nav-item" data-page="workspaces">
+                <span>◈</span>
+                <span>Workspaces</span>
+            </button>
 
-                π Memory
+            <button class="nav-item" data-page="direction">
+                <span>🧭</span>
+                <span>Direction</span>
+            </button>
 
-            </h1>
+            <button class="nav-item" data-page="research">
+                <span>⌕</span>
+                <span>Research</span>
+            </button>
 
-            <p id="instructionText">
+            <button class="nav-item" data-page="library">
+                <span>▣</span>
+                <span>Library</span>
+            </button>
 
-                Watch the highlighted digits of π.
+            <button class="nav-item" data-page="creative">
+                <span>✦</span>
+                <span>Creative Flow</span>
+            </button>
 
-                <br><br>
+            <div class="nav-divider"></div>
 
-                Memorize the sequence.
+            <button class="nav-item" data-page="trash">
+                <span>♢</span>
+                <span>Trash</span>
+                <span class="nav-count" id="trashCount">0</span>
+            </button>
 
-                <br><br>
+        </nav>
 
-                After the countdown,
-                repeat it using the keypad.
 
-                <br><br>
+        <div class="sidebar-bottom">
 
-                Don't press any keys until
-                it's your turn!
+            <button
+                class="user-card"
+                id="openPersonalization"
+            >
+                <div class="avatar" id="userAvatar">JS</div>
 
-            </p>
+                <div class="user-info">
+                    <strong id="sidebarUsername">
+                        Jake Smith
+                    </strong>
 
-            <div id="piDisplay">
+                    <small>Personalize</small>
+                </div>
 
-                3 . 1 4 1 5
-
-            </div>
-
-            <div id="countdown">
-
-                3
-
-            </div>
+                <span>⚙</span>
+            </button>
 
         </div>
 
-    </div>
+    </aside>
 
 
+    <!-- MAIN -->
+    <main class="main">
 
-    <!-- Main -->
+        <!-- TOPBAR -->
+        <header class="topbar">
 
-    <main class="container">
+            <div>
+                <div class="eyebrow" id="pageEyebrow">
+                    YOUR THINKING SPACE
+                </div>
 
-        <header>
+                <h1 id="pageTitle">Welcome back.</h1>
+            </div>
 
-            <h1>
+            <div class="top-actions">
 
-                π Memory
+                <button
+                    class="icon-button"
+                    id="themeToggle"
+                    title="Toggle theme"
+                >
+                    ◐
+                </button>
 
-            </h1>
+                <button
+                    class="new-button"
+                    id="quickNew"
+                >
+                    <span>＋</span>
+                    New idea
+                </button>
 
-            <p>
-
-                How many digits can you remember?
-
-            </p>
+            </div>
 
         </header>
 
 
+        <!-- =====================================================
+             HOME
+        ====================================================== -->
 
-        <!-- Stats -->
+        <section class="page active-page" id="page-home">
 
-        <section id="stats">
+            <div
+                class="welcome-banner"
+                id="personalizationBanner"
+            >
 
-            <div class="stat-card">
+                <div class="banner-glow"></div>
 
-                <span>
+                <div class="banner-icon">🧬</div>
 
-                    ROUND
+                <div class="banner-content">
 
-                </span>
+                    <span class="banner-kicker">
+                        FIRST-TIME SETUP
+                    </span>
 
-                <strong id="roundCounter">
+                    <h2>
+                        Make BRAINZTORM yours.
+                    </h2>
 
-                    0
+                    <p>
+                        Customize your name, accent,
+                        theme and thinking experience.
+                    </p>
 
+                </div>
+
+                <button
+                    class="primary-button"
+                    id="personalizeFromBanner"
+                >
+                    Personalize ✨
+                </button>
+
+            </div>
+
+
+            <div class="hero">
+
+                <div class="hero-copy">
+
+                    <span class="hero-label">
+                        ✦ YOUR CREATIVE SPACE
+                    </span>
+
+                    <h2>
+                        Think it.<br>
+                        <span>Shape it.</span>
+                    </h2>
+
+                    <p>
+                        BRAINZTORM turns scattered thoughts
+                        into projects you can explore,
+                        organize and develop.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <button
+                            class="primary-button"
+                            id="heroNewProject"
+                        >
+                            Create a workspace
+                            <span>→</span>
+                        </button>
+
+                        <button
+                            class="secondary-button"
+                            id="heroSpark"
+                        >
+                            💡 Spark an idea
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+
+                    <div class="brain-core">
+                        🧠
+                    </div>
+
+                    <span class="floating-icon icon-one">💡</span>
+                    <span class="floating-icon icon-two">🚀</span>
+                    <span class="floating-icon icon-three">✦</span>
+                    <span class="floating-icon icon-four">🧩</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">
+                        YOUR UNIVERSE
+                    </span>
+
+                    <h2>Recent workspaces</h2>
+                </div>
+
+                <button
+                    class="text-button"
+                    data-page="workspaces"
+                >
+                    View all →
+                </button>
+
+            </div>
+
+
+            <div
+                class="workspace-grid"
+                id="homeWorkspaceGrid"
+            ></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             WORKSPACES
+        ====================================================== -->
+
+        <section class="page" id="page-workspaces">
+
+            <div class="page-intro">
+
+                <div>
+                    <span class="eyebrow">
+                        YOUR PROJECTS
+                    </span>
+
+                    <h2>Workspaces</h2>
+
+                    <p>
+                        Every thought deserves somewhere to grow.
+                    </p>
+                </div>
+
+                <button
+                    class="primary-button"
+                    id="workspaceNew"
+                >
+                    ＋ New workspace
+                </button>
+
+            </div>
+
+            <div class="workspace-limit">
+                <span>Workspace capacity</span>
+
+                <strong>
+                    <span id="projectCount">0</span> / 25
                 </strong>
 
+                <div class="progress">
+                    <div id="projectProgress"></div>
+                </div>
             </div>
 
-            <div class="stat-card">
+            <div
+                class="workspace-grid large-grid"
+                id="workspaceGrid"
+            ></div>
 
-                <span>
+        </section>
 
-                    DIGITS
 
-                </span>
+        <!-- =====================================================
+             WORKSPACE DETAIL
+        ====================================================== -->
 
-                <strong id="digitCounter">
+        <section class="page" id="page-workspace">
 
-                    0
+            <div class="workspace-header">
 
-                </strong>
+                <button
+                    class="back-button"
+                    id="backToWorkspaces"
+                >
+                    ← Workspaces
+                </button>
+
+                <div class="workspace-title-row">
+
+                    <button
+                        class="workspace-big-emoji"
+                        id="workspaceEmojiButton"
+                        title="Change workspace emoji"
+                    >
+                        💡
+                    </button>
+
+                    <div>
+                        <input
+                            id="workspaceTitleInput"
+                            class="workspace-title-input"
+                            value="Untitled Workspace"
+                        >
+
+                        <input
+                            id="workspaceDescriptionInput"
+                            class="workspace-description-input"
+                            placeholder="Describe your project..."
+                        >
+                    </div>
+
+                </div>
+
+                <button
+                    class="secondary-button"
+                    id="saveWorkspace"
+                >
+                    Save changes
+                </button>
 
             </div>
 
-            <div class="stat-card">
 
-                <span>
+            <div class="emoji-picker" id="emojiPicker"></div>
 
-                    BEST
 
-                </span>
+            <div class="workspace-layout">
 
-                <strong id="bestCounter">
+                <!-- IDEAS -->
+                <div class="workspace-main-card">
 
-                    0
+                    <div class="card-header">
 
-                </strong>
+                        <div>
+                            <span class="eyebrow">
+                                IDEA FIELD
+                            </span>
+
+                            <h3>
+                                Your thoughts
+                            </h3>
+                        </div>
+
+                        <button
+                            class="small-button"
+                            id="addIdea"
+                        >
+                            ＋ Idea
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="ideas-list"
+                        id="ideasList"
+                    ></div>
+
+                </div>
+
+
+                <!-- ORGANIZE -->
+                <aside class="organize-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="eyebrow">
+                                ORGANIZE
+                            </span>
+
+                            <h3>
+                                Thought groups
+                            </h3>
+                        </div>
+
+                        <button
+                            class="small-icon-button"
+                            id="addGroup"
+                            title="Create group"
+                        >
+                            ＋
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="groups-list"
+                        id="groupsList"
+                    ></div>
+
+                </aside>
+
+            </div>
+
+
+            <!-- WORKSPACE TOOLS -->
+
+            <div class="tool-grid">
+
+                <button
+                    class="tool-card"
+                    data-workspace-tool="direction"
+                >
+                    <span class="tool-icon">🧭</span>
+                    <strong>Direction</strong>
+                    <p>
+                        Find possible paths forward.
+                    </p>
+                </button>
+
+                <button
+                    class="tool-card"
+                    data-workspace-tool="research"
+                >
+                    <span class="tool-icon">⌕</span>
+                    <strong>Research</strong>
+                    <p>
+                        Discover useful sources.
+                    </p>
+                </button>
+
+                <button
+                    class="tool-card"
+                    data-workspace-tool="library"
+                >
+                    <span class="tool-icon">▣</span>
+                    <strong>Library</strong>
+                    <p>
+                        Explore helpful resources.
+                    </p>
+                </button>
 
             </div>
 
         </section>
 
 
+        <!-- =====================================================
+             DIRECTION
+        ====================================================== -->
 
-        <!-- Difficulty -->
+        <section class="page" id="page-direction">
 
-        <section
-            id="difficultyPanel">
+            <div class="page-intro">
 
-            <label
-                for="difficultySlider">
+                <div>
+                    <span class="eyebrow">
+                        🧭 THINKING ASSISTANT
+                    </span>
 
-                Difficulty
+                    <h2>Direction</h2>
 
-            </label>
-
-            <div class="difficulty-labels">
-
-                <span>
-
-                    Easy
-
-                </span>
-
-                <span>
-
-                    Medium
-
-                </span>
-
-                <span>
-
-                    Hard
-
-                </span>
-
-                <span>
-
-                    Impossible
-
-                </span>
+                    <p>
+                        Give your project context.
+                        Direction will help you find paths
+                        without deciding the destination for you.
+                    </p>
+                </div>
 
             </div>
 
-            <input
 
-                id="difficultySlider"
+            <div class="direction-layout">
 
-                type="range"
+                <div class="direction-input-card">
 
-                min="0"
+                    <label>
+                        What are you working on?
+                    </label>
 
-                max="3"
+                    <textarea
+                        id="directionInput"
+                        placeholder="Tell Direction about your project..."
+                    ></textarea>
 
-                step="1"
+                    <div class="direction-options">
 
-                value="0">
+                        <button
+                            class="chip"
+                            data-direction-prompt="I'm not sure yet. Help me explore possibilities."
+                        >
+                            🤷 I don't know yet
+                        </button>
 
-            <p id="difficultyName">
+                        <button
+                            class="chip"
+                            data-direction-prompt="Give me several completely different directions I could explore."
+                        >
+                            🌌 Give me possibilities
+                        </button>
 
-                🟢 Easy
+                        <button
+                            class="chip"
+                            data-direction-prompt="Help me break this enormous idea into smaller steps."
+                        >
+                            🧩 Break it down
+                        </button>
 
-            </p>
+                        <button
+                            class="chip"
+                            data-direction-prompt="I'll think about it later. Give me something small I can do right now."
+                        >
+                            🕐 I'll think about it later
+                        </button>
 
-        </section>
+                    </div>
+
+                    <button
+                        class="primary-button"
+                        id="runDirection"
+                    >
+                        ✦ Generate direction
+                    </button>
+
+                </div>
 
 
+                <div class="direction-output-card">
 
-        <!-- Progress -->
+                    <div class="direction-status">
+                        <span class="status-dot"></span>
+                        Direction online
+                    </div>
 
-        <section id="progressSection">
+                    <div
+                        class="direction-output"
+                        id="directionOutput"
+                    >
+                        <div class="direction-empty">
+                            <div>🧭</div>
 
-            <span>
+                            <strong>
+                                Nothing is fixed yet.
+                            </strong>
 
-                Progress
+                            <span>
+                                That's the point.
+                            </span>
+                        </div>
+                    </div>
 
-            </span>
-
-            <div id="progressBar">
-
-                <div id="progressFill"></div>
+                </div>
 
             </div>
 
         </section>
 
 
+        <!-- =====================================================
+             RESEARCH
+        ====================================================== -->
 
-        <!-- Keypad -->
+        <section class="page" id="page-research">
 
-        <section id="keypad">
+            <div class="page-intro">
 
-            <button
-                class="key"
-                data-value="1">
+                <div>
+                    <span class="eyebrow">
+                        ⌕ KNOWLEDGE
+                    </span>
 
-                1
+                    <h2>Research</h2>
 
-            </button>
+                    <p>
+                        Start with trustworthy places to investigate.
+                    </p>
+                </div>
 
-            <button
-                class="key"
-                data-value="2">
+            </div>
 
-                2
 
-            </button>
+            <div class="research-warning">
 
-            <button
-                class="key"
-                data-value="3">
+                <span>⚠️</span>
 
-                3
+                <div>
+                    <strong>
+                        Research responsibly.
+                    </strong>
 
-            </button>
+                    <p>
+                        BRAINZTORM provides starting points,
+                        not professional, legal, medical or
+                        academic advice. Always verify important
+                        information directly with the original source.
+                    </p>
+                </div>
 
-            <button
-                class="key"
-                data-value="4">
+            </div>
 
-                4
 
-            </button>
+            <div class="research-search">
 
-            <button
-                class="key"
-                data-value="5">
+                <input
+                    id="researchQuery"
+                    placeholder="What are you researching?"
+                >
 
-                5
+                <button
+                    class="primary-button"
+                    id="researchButton"
+                >
+                    Search sources
+                </button>
 
-            </button>
+            </div>
 
-            <button
-                class="key"
-                data-value="6">
 
-                6
-
-            </button>
-
-            <button
-                class="key"
-                data-value="7">
-
-                7
-
-            </button>
-
-            <button
-                class="key"
-                data-value="8">
-
-                8
-
-            </button>
-
-            <button
-                class="key"
-                data-value="9">
-
-                9
-
-            </button>
-
-            <div></div>
-
-            <button
-                class="key"
-                data-value="0">
-
-                0
-
-            </button>
-
-            <div></div>
+            <div
+                class="source-grid"
+                id="researchResults"
+            ></div>
 
         </section>
 
 
+        <!-- =====================================================
+             LIBRARY
+        ====================================================== -->
 
-        <!-- Controls -->
+        <section class="page" id="page-library">
 
-        <section
-            class="controls">
+            <div class="page-intro">
 
-            <button
-                id="start">
+                <div>
+                    <span class="eyebrow">
+                        ▣ CURATED RESOURCES
+                    </span>
 
-                ▶ Start Game
+                    <h2>Library</h2>
 
-            </button>
+                    <p>
+                        Useful places to learn, explore and verify.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                class="library-grid"
+                id="libraryGrid"
+            ></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CREATIVE FLOW
+        ====================================================== -->
+
+        <section class="page" id="page-creative">
+
+            <div class="page-intro">
+
+                <div>
+                    <span class="eyebrow">
+                        ✦ COMMUNITY INSPIRATION
+                    </span>
+
+                    <h2>Creative Flow</h2>
+
+                    <p>
+                        Discover public inspiration and creative
+                        prompts. Keep your own ideas yours unless
+                        you intentionally share them.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="creative-grid" id="creativeGrid"></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TRASH
+        ====================================================== -->
+
+        <section class="page" id="page-trash">
+
+            <div class="page-intro">
+
+                <div>
+                    <span class="eyebrow">
+                        ♢ RECOVERY
+                    </span>
+
+                    <h2>Trash</h2>
+
+                    <p>
+                        Deleted projects stay here until you
+                        permanently remove them.
+                    </p>
+                </div>
+
+                <button
+                    class="danger-button"
+                    id="emptyTrash"
+                >
+                    Empty trash
+                </button>
+
+            </div>
+
+
+            <div
+                class="workspace-grid large-grid"
+                id="trashGrid"
+            ></div>
 
         </section>
 
     </main>
 
+</div>
 
 
-    <!-- Game Over -->
+<!-- =========================================================
+     TOASTS
+========================================================= -->
 
-    <div
-        id="gameOver"
-        class="game-over hidden">
+<div
+    class="toast-container"
+    id="toastContainer"
+></div>
 
-        <div class="game-over-box">
 
-<h2>
+<!-- =========================================================
+     PERSONALIZATION MODAL
+========================================================= -->
 
-    Game Over
+<div
+    class="modal hidden"
+    id="personalizationModal"
+>
 
-</h2>
+    <div class="modal-backdrop"></div>
 
-<div id="starRating" class="star-rating"></div>
+    <div class="modal-card">
 
-<p id="ratingText"></p>
+        <button
+            class="modal-close"
+            id="closePersonalization"
+        >
+            ×
+        </button>
 
-<p id="finalScore">
+        <div class="modal-icon">
+            🧬
+        </div>
 
-    0 digits
+        <span class="eyebrow">
+            PERSONALIZATION
+        </span>
 
-</p>
+        <h2>
+            Make it yours.
+        </h2>
 
-            <p id="difficultyResult">
+        <p class="modal-subtitle">
+            These settings are saved on this device.
+            You don't need to provide your real name.
+        </p>
 
-                Easy
 
-            </p>
+        <label class="form-label">
+            Nickname
+        </label>
+
+        <input
+            id="nicknameInput"
+            class="text-input"
+            maxlength="24"
+            placeholder="What should we call you?"
+        >
+
+
+        <label class="form-label">
+            Accent
+        </label>
+
+        <div
+            class="accent-picker"
+            id="accentPicker"
+        ></div>
+
+
+        <label class="form-label">
+            Theme
+        </label>
+
+        <div class="segmented-control">
 
             <button
-                id="restart">
+                class="theme-option"
+                data-theme="dark"
+            >
+                🌙 Dark
+            </button>
 
-                Play Again
+            <button
+                class="theme-option"
+                data-theme="light"
+            >
+                ☀️ Light
+            </button>
 
+            <button
+                class="theme-option"
+                data-theme="system"
+            >
+                🖥 System
             </button>
 
         </div>
 
+
+        <label class="check-row">
+
+            <input
+                type="checkbox"
+                id="motivationToggle"
+            >
+
+            <span>
+                Show motivational sparks 💡
+            </span>
+
+        </label>
+
+
+        <button
+            class="primary-button"
+            id="savePersonalization"
+        >
+            Save personalization ✨
+        </button>
+
     </div>
 
+</div>
 
 
-    <script src="./js/pi.js"></script>
+<!-- =========================================================
+     NEW PROJECT / IDEA MODAL
+========================================================= -->
 
-    <script src="./js/game.js"></script>
+<div
+    class="modal hidden"
+    id="projectModal"
+>
+
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-card">
+
+        <button
+            class="modal-close"
+            id="closeProjectModal"
+        >
+            ×
+        </button>
+
+        <div class="modal-icon">
+            💡
+        </div>
+
+        <span class="eyebrow">
+            NEW WORKSPACE
+        </span>
+
+        <h2>
+            Give the thought somewhere to grow.
+        </h2>
+
+        <label class="form-label">
+            Project name
+        </label>
+
+        <input
+            id="projectNameInput"
+            class="text-input"
+            placeholder="e.g. My game idea"
+        >
+
+        <label class="form-label">
+            Description
+        </label>
+
+        <textarea
+            id="projectDescriptionInput"
+            class="text-input textarea"
+            placeholder="What's this project about?"
+        ></textarea>
+
+        <label class="form-label">
+            Emoji
+        </label>
+
+        <div
+            class="emoji-picker-modal"
+            id="projectEmojiPicker"
+        ></div>
+
+        <button
+            class="primary-button"
+            id="createProject"
+        >
+            Create workspace →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     IDEA MODAL
+========================================================= -->
+
+<div
+    class="modal hidden"
+    id="ideaModal"
+>
+
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-card">
+
+        <button
+            class="modal-close"
+            id="closeIdeaModal"
+        >
+            ×
+        </button>
+
+        <div class="modal-icon">
+            💭
+        </div>
+
+        <span class="eyebrow">
+            NEW THOUGHT
+        </span>
+
+        <h2>
+            Don't overthink it.
+        </h2>
+
+        <p class="modal-subtitle">
+            A rough thought is still a thought.
+        </p>
+
+        <textarea
+            id="ideaInput"
+            class="text-input textarea large-textarea"
+            placeholder="What's on your mind?"
+        ></textarea>
+
+        <div class="idea-shortcuts">
+
+            <button
+                class="chip"
+                data-idea-template="I'm not sure yet, but..."
+            >
+                🤷 I don't know yet
+            </button>
+
+            <button
+                class="chip"
+                data-idea-template="Maybe I could..."
+            >
+                💡 Maybe I could...
+            </button>
+
+            <button
+                class="chip"
+                data-idea-template="I'll come back to this later."
+            >
+                🕐 Later
+            </button>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="saveIdea"
+        >
+            Add thought ✦
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     GROUP MODAL
+========================================================= -->
+
+<div
+    class="modal hidden"
+    id="groupModal"
+>
+
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-card">
+
+        <button
+            class="modal-close"
+            id="closeGroupModal"
+        >
+            ×
+        </button>
+
+        <div class="modal-icon">
+            🗂️
+        </div>
+
+        <span class="eyebrow">
+            ORGANIZE
+        </span>
+
+        <h2>
+            Create a thought group.
+        </h2>
+
+        <label class="form-label">
+            Group name
+        </label>
+
+        <input
+            id="groupNameInput"
+            class="text-input"
+            placeholder="e.g. Questions"
+        >
+
+        <label class="form-label">
+            Icon
+        </label>
+
+        <div
+            class="group-icon-picker"
+            id="groupIconPicker"
+        ></div>
+
+        <button
+            class="primary-button"
+            id="createGroup"
+        >
+            Create group
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
 
 </body>
-
 </html>
